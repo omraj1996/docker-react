@@ -1,3 +1,4 @@
+language: generic
 sudo: required
 services:
   - docker
@@ -6,5 +7,5 @@ before_install:
   - docker build -t omraj/docker-react -f Dockerfile.dev .
 
 script:
-  - docker run omraj/docker-react npm run test -- --coverage
+  - docker run -e CI=true omraj/docker-react npm run test
 
